@@ -55,7 +55,7 @@ $app->get('/login', function(Request $request) use ($app) {
 /**
  * Internal routes for resetting things
  */
-$app->get('/_db/rebuild.{_format}', function(\Silex\Application $app, Request $request) {
+$app->get('/_db/rebuild', function(\Silex\Application $app, Request $request) {
     $app['schema_manager']->rebuildSchema();
 
     $withFixtures = !$request->query->has('fixtures') || $request->query->get('fixtures');
